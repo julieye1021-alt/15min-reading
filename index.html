@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>15分钟英语阅读</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f6f8;color:#202124;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+.app{max-width:520px;margin:auto;min-height:100vh;background:#fff;padding-bottom:75px}
+header{padding:28px 20px 18px}
+.gray{color:#777;font-size:14px}
+h1{font-size:29px;margin:5px 0}
+.card{margin:12px 20px;padding:18px;border:1px solid #e5e5e5;border-radius:18px}
+.tag{font-size:12px;color:#777;font-weight:bold}
+.title{font-size:20px;font-weight:bold;margin:8px 0}
+.meta{font-size:14px;color:#777}
+.task{margin-top:12px;padding:11px;background:#f7f7f7;border-radius:12px;font-size:14px;line-height:1.5}
+button{width:100%;border:0;border-radius:13px;padding:13px;margin-top:13px;background:#202124;color:white;font-size:16px}
+.progress{height:9px;background:#eee;border-radius:20px;margin:0 20px 18px;overflow:hidden}
+.progress div{height:100%;background:#202124}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;background:white;border-top:1px solid #eee;padding:7px 8px}
+.nav button{background:white;color:#777;font-size:12px;margin:0;padding:8px}
+.nav .on{color:#111;font-weight:bold}
+.word{padding:14px 20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between}
+.pill{background:#eee;padding:5px 8px;border-radius:9px;font-size:12px}
+</style>
+</head>
+
+<body>
+<div id="app"></div>
+
+<script>
+const KEY="reading15";
+let data=JSON.parse(localStorage.getItem(KEY)||"null")||{
+ minutes:0,
+ books:0,
+ words:[],
+ done:{}
+};
+
+const today=new Date().toLocaleDateString("en-CA");
+
+const reading=[
+ {
+  source:"ORT",
+  level:"5",
+  title:"The Strange Old House",
+  minutes:8,
+  task:"独立阅读。遇到生词先根据上下文猜，不需要每个词都查。"
+ },
+ {
+  source:"RAZ",
+  level:"E",
+  title:"今日 RAZ E 阅读",
+  minutes:7,
+  task:"读完后，用一句简单英文说出
